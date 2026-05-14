@@ -7,14 +7,10 @@ import { LogIn, Layout } from "lucide-react";
 import { motion } from "motion/react";
 
 export default function Home() {
-  const { login, user } = useAuth();
+  
   const navigate = useNavigate();
 
-  React.useEffect(() => {
-    if (user) {
-      navigate("/dashboard");
-    }
-  }, [user, navigate]);
+ 
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#f5f5f5] p-6">
@@ -34,13 +30,13 @@ export default function Home() {
             <CardDescription className="text-slate-500">Sign in to manage your projects and team activity.</CardDescription>
           </CardHeader>
           <CardContent className="pb-12 pt-4 px-12">
-            <Button 
-              onClick={login}
-              className="w-full bg-[#1a1a1a] hover:bg-black text-white py-6 rounded-full transition-all flex items-center justify-center gap-2"
-            >
-              <LogIn className="w-5 h-5" />
-              Continue with Google
-            </Button>
+           <Button 
+  onClick={() => navigate("/dashboard")}
+  className="w-full bg-[#1a1a1a] hover:bg-black text-white py-6 rounded-full transition-all flex items-center justify-center gap-2"
+>
+  <LogIn className="w-5 h-5" />
+  Continue
+</Button>
             <p className="mt-8 text-center text-xs text-slate-400">
               Only Google authentication is currently supported for maximum security.
             </p>
